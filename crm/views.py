@@ -1,13 +1,16 @@
-from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.contrib.auth import authenticate,login
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render
 from .models import *
 from .forms import *
-from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from .forms import LoginForm, UserRegistrationForm
 from django.db.models import Sum
 
-
 now = timezone.now()
+
 def home(request):
    return render(request, 'crm/home.html',
                  {'crm': home})
@@ -143,3 +146,30 @@ def summary(request, pk):
                                                     'services': services,
                                                     'sum_service_charge': sum_service_charge,
                                                     'sum_product_charge': sum_product_charge,})
+
+
+@login_required
+def home(request):
+    return render(request,
+                  'crm/home.html',
+                  {'section': 'home'})
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegistrationForm(request.POST)
+        if user_form.is_valid():
+            # Create a new user object but avoid saving it yet
+            new_user = user_form.save(commit=False)
+            # Set the chosen password
+            new_user.set_password(
+                user_form.cleaned_data['password'])
+            # Save the User object
+            new_user.save()
+            return render(request,
+                          'crm/register_done.html',
+                          {'new_user': new_user})
+    else:
+        user_form = UserRegistrationForm()
+    return render(request,
+                  'crm/register.html',
+                  {'user_form': user_form})

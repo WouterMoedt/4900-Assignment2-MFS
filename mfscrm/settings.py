@@ -80,6 +80,10 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+LOGIN_REDIRECT_URL = '/home'
+LOGIN_URL = '/login'
+LOGOUT_URL = '/logout'
+
 ROOT_URLCONF = 'mfscrm.urls'
 
 TEMPLATES = [
@@ -149,3 +153,16 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+UTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'crm.authentication.EmailAuthBackend',
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'isqa4900test@gmail.com'
+EMAIL_HOST_PASSWORD = 'ISQA4900'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
