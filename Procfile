@@ -1,1 +1,1 @@
-web: gunicorn mfscrm.wsgi --log-file –
+web: gunicorn Python_MFS.wsgi --log-file –
