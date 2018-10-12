@@ -36,10 +36,10 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'da8h8cigosvhr3',
-        'USER': 'sbfzjrimdtqeat',
-        'PASSWORD': 'e4726df3900cfec7595e5d413442a374af3680be847cfa5e0e0d82527743fdb1',
-        'HOST': 'ec2-54-235-212-58.compute-1.amazonaws.com',
+        'NAME': 'd9u1v213ssvh0g',
+        'USER': 'cmbehmxeaztsjn',
+        'PASSWORD': '5684a948a4f623e49d49cc96927cfd0d4fee78c9f1640f410616975acbb1a853',
+        'HOST': 'ec2-23-23-80-20.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
