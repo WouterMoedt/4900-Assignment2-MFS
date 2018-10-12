@@ -6,7 +6,7 @@ from .models import *
 from .forms import *
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, ServiceForm, CustomerForm, ProductForm
 from django.db.models import Sum
 
 now = timezone.now()
