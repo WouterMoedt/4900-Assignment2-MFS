@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -156,7 +157,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'crm.authentication.EmailAuthBackend',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -166,3 +166,6 @@ EMAIL_HOST_USER = 'isqa4900test@gmail.com'
 EMAIL_HOST_PASSWORD = 'ISQA4900'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
