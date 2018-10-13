@@ -81,10 +81,6 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-LOGIN_REDIRECT_URL = '/home'
-LOGIN_URL = '/login'
-LOGOUT_URL = '/logout'
-
 ROOT_URLCONF = 'mfscrm.urls'
 
 TEMPLATES = [
@@ -147,7 +143,7 @@ STATIC_URL = 'static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
+    os.path.join(BASE_DIR, '/static/'),
 )
 
 # Simplified static file serving.
@@ -160,12 +156,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'isqa4900test@gmail.com'
-EMAIL_HOST_PASSWORD = 'ISQA4900'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
