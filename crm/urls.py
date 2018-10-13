@@ -7,7 +7,7 @@ app_name = 'crm'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    url(r'^home/$', views.home, name='home'),
+    path('home/', views.home, name='home'),
     path('customer_list', views.customer_list, name='customer_list'),
     path('customer/<int:pk>/edit/', views.customer_edit, name='customer_edit'),
     path('customer/<int:pk>/delete/', views.customer_delete, name='customer_delete'),
@@ -20,12 +20,10 @@ urlpatterns = [
     path('product/<int:pk>/edit/', views.product_edit, name='product_edit'),
     path('product/<int:pk>/delete/', views.product_delete, name='product_delete'),
     path('customer/<int:pk>/summary/', views.summary, name='summary'),
-    path('', views.home, name='home'),
     path('password_change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('reset_password/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('reset_password/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
-    path('register/', views.register, name='register'),
 ]
