@@ -1,11 +1,11 @@
 from django.conf.urls import url
 from . import views
 from django.urls import path
-from django.contrib.auth import views as auth_views
 
 app_name = 'crm'
 
 urlpatterns = [
+    url(r'^home/$', views.home, name='home'),
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     path('customer_list', views.customer_list, name='customer_list'),
