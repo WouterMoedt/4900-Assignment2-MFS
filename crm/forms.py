@@ -1,7 +1,7 @@
 from django import forms
 from .models import Customer, Service, Product
 from django.contrib.auth.models import User
-
+from django.core.mail import EmailMultiAlternatives
 
 class CustomerForm(forms.ModelForm):
     class Meta:

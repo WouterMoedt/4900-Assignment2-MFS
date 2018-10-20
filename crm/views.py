@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm, ServiceForm, CustomerForm, ProductForm
 from django.db.models import Sum
+from django.core.mail import send_mail
 
 now = timezone.now()
 
