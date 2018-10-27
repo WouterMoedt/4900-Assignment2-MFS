@@ -149,7 +149,6 @@ def summary(request, pk):
                                                     'sum_product_charge': sum_product_charge,})
 
 
-@login_required
 def home(request):
     return render(request,
                   'crm/home.html',
