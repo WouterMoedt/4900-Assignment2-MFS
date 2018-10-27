@@ -167,10 +167,10 @@ def register(request):
             # Save the User object
             new_user.save()
             return render(request,
-                          'crm/register_done.html',
+                          'registration/register_done.html',
                           {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
     return render(request,
-                  'crm/register.html',
+                  'registration/register.html',
                   {'user_form': user_form})
